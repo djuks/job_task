@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   enum role: { admin: 0, user: 1 }
+
+  has_many :orders
 end
