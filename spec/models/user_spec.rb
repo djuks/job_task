@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
@@ -27,7 +29,6 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_db_column(:updated_at).of_type(:datetime) }
     it { is_expected.to have_db_column(:role).of_type(:integer) }
 
-
     it { is_expected.to have_db_index(:email).unique(true) }
     it { is_expected.to have_db_index(:reset_password_token).unique(true) }
     it { is_expected.to have_db_index(:confirmation_token).unique(true) }
@@ -35,10 +36,10 @@ RSpec.describe User, type: :model do
 
   describe 'validations' do
     it { is_expected.to validate_presence_of(:role) }
-    it { is_expected.to define_enum_for(:role).with_values([:admin, :user]) }
+    it { is_expected.to define_enum_for(:role).with_values(%i[admin user]) }
   end
 
   describe 'associations' do
-    it { is_expected.to have_many(:orders) }
+    it { is_expected.to have_many(:orders).dependent(:destroy) }
   end
 end

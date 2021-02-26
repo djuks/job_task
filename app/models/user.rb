@@ -1,4 +1,6 @@
-class User < ActiveRecord::Base
+# frozen_string_literal: true
+
+class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -7,7 +9,7 @@ class User < ActiveRecord::Base
 
   enum role: { admin: 0, user: 1 }
 
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
   validates :role, presence: true
 end

@@ -1,0 +1,36 @@
+require: rubocop-rails
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "db/schema.rb"
+    - "db/seeds.rb"
+    - "db/migrate/*"
+    - "vendor/**/*"
+    #     - 'spec/**/*'
+    - "spec/fixtures/**/*"
+    - "spec/support/elasticsearch.rb"
+    - "tmp/**/*"
+    - "config/puma.rb"
+    - "bin/*"
+    - "config/environments/*"
+    -
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/models/user_spec.rb"

@@ -1,0 +1,9 @@
+test:
+  adapter: postgresql
+  host: <%= ENV['POSTGRES_HOST'] %>
+  port: <%= ENV['POSTGRES_PORT'] %>
+  encoding: unicode
+  database: tasq_test
+  pool: 20
+  username: postgres
+  password: postgres
