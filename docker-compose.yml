@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    volumes:
+      - .:/app
+      - bundle_volume:/usr/local/bundle
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      - default
+      - tasq
+
+  db:
+    image: postgres:12
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - default
+    environment:
+      POSTGRES_PASSWORD: password1234
+
+volumes:
+  bundle_volume:
+  db_volume:
+
+networks:
+  tasq:
+    name: job_task
