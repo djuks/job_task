@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
   enum role: { admin: 0, user: 1 }
 
   has_many :orders
+
+  validates :role, presence: true
 end
