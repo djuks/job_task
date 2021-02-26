@@ -1,24 +1,47 @@
-# README
+# JOB TASK
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Setup
+Install docker https://docs.docker.com/engine/install/
+To setup project on locale machine use following commands:
 
-Things you may want to cover:
+```
+git clone git@github.com:djuks/job_task.git
+cd job_task
+docker-compose build
+docker-compose run --rm api rails db:setup
+```
 
-* Ruby version
+Start server:
 
-* System dependencies
+```
+docker-compose up
+```
 
-* Configuration
+## Development
 
-* Database creation
+To run Rspec tests or Rubocop tools use following commands:
 
-* Database initialization
+```
+docker-compose run --rm api rubocop
+docker-compose run --rm api bundle exec rspec -fd
+```
 
-* How to run the test suite
+Generate api html docs use following command:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+docker-compose run --rm \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    api rails docs:generate:html
+```
 
-* Deployment instructions
+To open rails console use following command:
 
-* ...
+```
+docker-compose run --rm api rails c
+```
+
+To migrate database use following command:
+
+```
+docker-compose run --rm api rails db:migrate
+```
