@@ -32,7 +32,7 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: tasq_server
+  #username: job_task_server
 
   # The password associated with the postgres role (username).
   #password:
@@ -88,4 +88,4 @@ production:
   <<: *default
   database: job_task_production
   username: job_task
-  password: <%= ENV['TASQ_SERVER_DATABASE_PASSWORD'] %>
+  password: <%= ENV['JOB_TASK_SERVER_DATABASE_PASSWORD'] %>
