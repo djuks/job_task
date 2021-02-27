@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Users API</title>
+    <title>Orders API</title>
     <meta charset="utf-8">
     <style>
       
@@ -106,11 +106,11 @@ table th, table td {
   </head>
   <body>
     <div class="container">
-      <h1>Users API</h1>
+      <h1>Orders API</h1>
 
       <div class="article">
-        <h2>Sign in</h2>
-        <h3>POST /auth/sign_in</h3>
+        <h2>Create user order</h2>
+        <h3>POST /orders</h3>
 
           <h3>Parameters</h3>
           <table class="parameters table table-striped table-bordered table-condensed">
@@ -123,18 +123,10 @@ table th, table td {
             <tbody>
               <tr>
                 <td class="required">
-                    <span class="name">user[email]</span>
+                    <span class="name">order[name]</span>
                 </td>
                 <td>
-                  <span class="description">User email</span>
-                </td>
-              </tr>
-              <tr>
-                <td class="required">
-                    <span class="name">user[password]</span>
-                </td>
-                <td>
-                  <span class="description">User password</span>
+                  <span class="description">Order name</span>
                 </td>
               </tr>
             </tbody>
@@ -148,26 +140,26 @@ table th, table td {
 Accept: application/json</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">POST /auth/sign_in</pre>
+          <pre class="request route highlight">POST /orders</pre>
 
 
             <h4>Body</h4>
-            <pre class="request body">{"user":{"email":"sample@example.com","password":"password"},"email":"sample@example.com","password":"password"}</pre>
+            <pre class="request body">{"order":{"name":"sample_order"}}</pre>
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
               <pre class="response headers">Content-Type: application/json; charset=utf-8
-access-token: t4dJ5fW0NxnTm80m-hd5Ew
+access-token:  
 token-type: Bearer
-client: zGoL28Nk318otiyiPgvNWg
-expiry: 1615637506
-uid: sample@example.com
-ETag: W/&quot;54ae06712a2d0b2f55dd8feb7f5f397b&quot;
+client: uuk1kPhx6tJQ9_yySvkNZg
+expiry:  
+uid: user3@example.com
+ETag: W/&quot;3319b6e710d5cc91aa55598fea45b757&quot;
 Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 5ee646cd-54d6-49f8-b3ee-7c2e16e3c4f7
-X-Runtime: 0.145038
-Content-Length: 177</pre>
+X-Request-Id: 8c1e4cac-b12c-40cd-841b-ab14bb870d22
+X-Runtime: 0.074679
+Content-Length: 130</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
