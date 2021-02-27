@@ -3,17 +3,22 @@ class OrdersController < ApplicationController
   before_action :find_product, only: :show
 
   def index
-    orders = Order.where(user_id: current_user.id)
+    orders = Order.where(user_id: params[:user_id])
+
+    authorize orders
 
     render_json(orders, "OrderSerializer")
   end
 
   def show
+    authorize @order
+
     render_json(@order, "OrderSerializer")
   end
 
   def create
     order = current_user.orders.new(order_params)
+    authorize order
     order.save!
 
     render_json(order, "OrderSerializer")

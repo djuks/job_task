@@ -12,6 +12,10 @@ resource 'Orders' do
   end
 
   get '/orders' do
+    let(:user_id) { @user.id }
+
+    parameter :user_id, 'User id', required: true
+
     example 'Get all user orders' do
       do_request
 
