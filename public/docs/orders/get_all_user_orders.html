@@ -112,6 +112,25 @@ table th, table td {
         <h2>Get all user orders</h2>
         <h3>GET /orders</h3>
 
+          <h3>Parameters</h3>
+          <table class="parameters table table-striped table-bordered table-condensed">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="required">
+                    <span class="name">user_id</span>
+                </td>
+                <td>
+                  <span class="description">User id</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
 
 
           <h3>Request</h3>
@@ -121,26 +140,16 @@ table th, table td {
 Accept: application/json</pre>
 
           <h4>Route</h4>
-          <pre class="request route highlight">GET /orders</pre>
+          <pre class="request route highlight">GET /orders?user_id=1</pre>
 
             <h4>Query Parameters</h4>
-            <pre class="request query_parameters highlight">{}: </pre>
+            <pre class="request query_parameters highlight">user_id: 1</pre>
 
 
 
             <h3>Response</h3>
               <h4>Headers</h4>
-              <pre class="response headers">Content-Type: application/json; charset=utf-8
-access-token:  
-token-type: Bearer
-client: 2-KD6XSVy5wPMrbCp4q-rg
-expiry:  
-uid: user1@example.com
-ETag: W/&quot;41941202b81477219418819253fdb8dd&quot;
-Cache-Control: max-age=0, private, must-revalidate
-X-Request-Id: 85ab393a-aa02-4991-80a4-3697bb9b7205
-X-Runtime: 0.086440
-Content-Length: 250</pre>
+              <pre class="response headers">Content-Type: application/json; charset=utf-8</pre>
             <h4>Status</h4>
             <pre class="response status">200 OK</pre>
               <h4>Body</h4>
