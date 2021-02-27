@@ -45,3 +45,6 @@ To migrate database use following command:
 ```
 docker-compose run --rm api rails db:migrate
 ```
+
+Check current API documentation:
+http://localhost:3000/docs/index.html
